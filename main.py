@@ -10,6 +10,7 @@ from sklearn.preprocessing import Imputer
 from sklearn import preprocessing, svm
 from skimage import io, color, segmentation
 from math import ceil
+import os
 import sys
 import cv2
 import glob
@@ -104,7 +105,6 @@ def LTP_feature_extraction(image_block, reorder_vector, t, exp, uPattern_values)
 ###########################  Data Loading  #############################
 
 org_images          = sorted(glob.glob(args.input_dir+"*.jpg"))
-output_path         = args.output_dir
 my_deploy_prototext = args.caffeNet_dir + 'deploy.prototxt'
 my_caffemodel       = args.caffeNet_dir + 'model_caffenet.caffemodel'
 my_meanfile         = args.caffeNet_dir + 'mean.npy'
@@ -121,6 +121,9 @@ if args.gpu_mode:
     caffe.set_device(0)
 else:
     caffe.set_mode_cpu()
+
+if not os.path.exists(args.output_dir):
+    os.makedirs(args.output_dir)
 
 ####################### CaffeNet Initialization ########################
 
@@ -214,12 +217,12 @@ for n in range(len(org_images)):
 
     if unique_counts_val.get(0) == output_image.shape[0] * output_image.shape[1] or output_image.max() <= 5:
         print "Processing finished. All pixels in the input image are labelled as nonhair."
-        cv2.imwrite(output_path + org_images[n].split('/')[-1][:-4] + "-" + "HairDetection-Hair-region.png", output_image.astype(np.int))
+        cv2.imwrite(args.output_dir + org_images[n].split('/')[-1][:-4] + "-" + "HairDetection-Hair-region.png", output_image.astype(np.int))
         continue
     elif unique_counts_val.get(49) == output_image.shape[0] * output_image.shape[1]:
         print "Processing finished. All pixels in the input image are labelled as hair."
         output_image[output_image == 49] = 255
-        cv2.imwrite(output_path + org_images[n].split('/')[-1][:-4] + "-" + "HairDetection-Hair-region.png", output_image.astype(np.int))
+        cv2.imwrite(args.output_dir + org_images[n].split('/')[-1][:-4] + "-" + "HairDetection-Hair-region.png", output_image.astype(np.int))
         continue
 
     hair_thr_relative    = int(ceil(float( output_image.max() * hair_thr ) / 100))
@@ -227,12 +230,12 @@ for n in range(len(org_images)):
     Hair_region          = output_image >= hair_thr_relative
     NonHair_region       = output_image <= nonhair_thr_relative
 
-    cv2.imwrite(output_path + org_images[n].split('/')[-1][:-4] + "-" + "HairDetection-Hair-region.png", Hair_region.astype(np.int)*255)
-    cv2.imwrite(output_path + org_images[n].split('/')[-1][:-4] + "-" + "HairDetection-NonHair-region.png", NonHair_region.astype(np.int)*255)
+    cv2.imwrite(args.output_dir + org_images[n].split('/')[-1][:-4] + "-" + "HairDetection-Hair-region.png", Hair_region.astype(np.int)*255)
+    cv2.imwrite(args.output_dir + org_images[n].split('/')[-1][:-4] + "-" + "HairDetection-NonHair-region.png", NonHair_region.astype(np.int)*255)
 
     if args.visual_output_save:
         image_footprint = image_footprint * 255
-        cv2.imwrite(output_path + org_images[n].split('/')[-1][:-4] + "-HairProb" + ".jpg", np.fliplr(image_footprint.reshape(-1,3)).reshape(image_footprint.shape))
+        cv2.imwrite(args.output_dir + org_images[n].split('/')[-1][:-4] + "-HairProb" + ".jpg", np.fliplr(image_footprint.reshape(-1,3)).reshape(image_footprint.shape))
 
     ############### Segmentation: Classifier Training ##################
 
@@ -414,9 +417,9 @@ for n in range(len(org_images)):
     Labels_img_bin[Labels_img_bin == 4] = 2
     Labels_img_bin[Labels_img_bin == 2] = 0
 
-    np.save(output_path + org_images[n].split('/')[-1][:-4] + "-" + "HairSegmentation-Result.npy", Labels_img_bin)
-    cv2.imwrite(output_path + org_images[n].split('/')[-1][:-4] + "-" + "HairSegmentation-Hair-region.png", Labels_img_bin.astype(np.int)*255)
+    np.save(args.output_dir + org_images[n].split('/')[-1][:-4] + "-" + "HairSegmentation-Result.npy", Labels_img_bin)
+    cv2.imwrite(args.output_dir + org_images[n].split('/')[-1][:-4] + "-" + "HairSegmentation-Hair-region.png", Labels_img_bin.astype(np.int)*255)
     Seg_image_boundaries = Seg_image_boundaries * 255
-    cv2.imwrite(output_path + org_images[n].split('/')[-1][:-4] + "-" + "HairSegmentation-Result.png", np.fliplr(Seg_image_boundaries.reshape(-1,3)).reshape(Seg_image_boundaries.shape))
+    cv2.imwrite(args.output_dir + org_images[n].split('/')[-1][:-4] + "-" + "HairSegmentation-Result.png", np.fliplr(Seg_image_boundaries.reshape(-1,3)).reshape(Seg_image_boundaries.shape))
 
     print "Processing finished."

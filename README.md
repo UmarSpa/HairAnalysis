@@ -5,11 +5,11 @@ Created by Muhammad Umar Riaz - University of Brescia (2016)
 
 This is the code for the paper:  
 
-Hair detection, segmentation, and hairstyle classification in the wild  
+[Hair detection, segmentation, and hairstyle classification in the wild](https://www.sciencedirect.com/science/article/pii/S0262885618300143)  
 U.R. Muhammad, M. Svanera, R. Leonardi, and S. Benini  
 Image and Vision Computing, 2018. 
 
-The webpage for this project is available [here](http://www.eecs.qmul.ac.uk/~urm30/Hair.html), with a link to the [paper](https://www.sciencedirect.com/science/article/pii/S0262885618300143).
+[Project page](http://www.eecs.qmul.ac.uk/~urm30/Hair.html)
 
 ## Cite
 If you find this code useful in your research, please, consider citing our paper:
@@ -38,7 +38,7 @@ This is the continuation of our previous work ([project page](http://www.eecs.qm
 [Figaro-1k](http://www.eecs.qmul.ac.uk/~urm30/HairMaterial/Figaro-1k.zip): It contains 1050 unconstrained view images with persons, subdivided into seven different hairstyles classes (straight, wavy, curly, kinky, braids, dreadlocks, short), where each image is provided with the related manually segmented hair mask.
 
 ## Demo
-You can run the our demo script on any jpg format image (that must be placed in folder *Data*) by running main.py file.  
-N.B. you need to download [model_caffenet.caffemodel](http://www.eecs.qmul.ac.uk/~urm30/HairMaterial/model_caffenet.caffemodel) and place it in Tools/CaffeNet/.  
+You can run the demo on any jpg format image (that must be placed in folder *Data*) by running main.py file.  
+N.B. you need to download [model_caffenet.caffemodel](http://www.eecs.qmul.ac.uk/~urm30/HairMaterial/model_caffenet.caffemodel) and place it in *Tools/CaffeNet/*.  
 
 

@@ -22,3 +22,23 @@ If you find this code useful in your research, please, consider citing our paper
   publisher={Elsevier}
 }
 ```
+
+## Related work
+This is the continuation of our previous work ([project page](http://www.eecs.qmul.ac.uk/~urm30/Figaro.html)):
+```
+@inproceedings{svanera2016figaro,
+  title={Figaro, hair detection and segmentation in the wild},
+  author={Svanera, Michele and Muhammad, Umar Riaz and Leonardi, Riccardo and Benini, Sergio},
+  booktitle={International Conference on Image Processing (ICIP)},
+  year={2016},
+  organization={IEEE}
+}
+```
+## Dataset 
+[Figaro-1k](http://www.eecs.qmul.ac.uk/~urm30/HairMaterial/Figaro-1k.zip): It contains 1050 unconstrained view images with persons, subdivided into seven different hairstyles classes (straight, wavy, curly, kinky, braids, dreadlocks, short), where each image is provided with the related manually segmented hair mask.
+
+## Demo
+You can run the our demo script on any jpg format image (that must be placed in folder *Data*) by running main.py file.  
+N.B. you need to download [model_caffenet.caffemodel](http://www.eecs.qmul.ac.uk/~urm30/HairMaterial/model_caffenet.caffemodel) and place it in Tools/CaffeNet/.  
+
+

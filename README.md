@@ -24,7 +24,7 @@ If you find this code useful in your research, please, consider citing our paper
 ```
 
 ## Related work
-This is the continuation of our previous work ([project page](http://www.eecs.qmul.ac.uk/~urm30/Figaro.html)):
+This is the continuation of our previous work ([project page](http://www.eecs.qmul.ac.uk/~urm30/Figaro.html), [paper](http://ieeexplore.ieee.org/document/7532494/)):
 ```
 @inproceedings{svanera2016figaro,
   title={Figaro, hair detection and segmentation in the wild},

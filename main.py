@@ -91,12 +91,12 @@ def LTP_feature_extraction(image_block, reorder_vector, t, exp, uPattern_values)
             lower[lower == -1] = 1
             dl = np.sum( pow(2, exp) * lower )
             if any(uPattern_values == du):
-                block_hist_uPattern_upper[uPattern_values == du] += 1
+                block_hist_uPattern_upper[np.where(uPattern_values == du)[0][0]] += 1
             else:
                 block_hist_uPattern_upper[58] += 1
 
             if any(uPattern_values == dl):
-                block_hist_uPattern_lower[uPattern_values == dl] += 1
+                block_hist_uPattern_lower[np.where(uPattern_values == dl)[0][0]] += 1
             else:
                 block_hist_uPattern_lower[58] += 1
     fileRow = np.concatenate([block_hist_uPattern_lower, block_hist_uPattern_upper])

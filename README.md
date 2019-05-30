@@ -36,6 +36,14 @@ This is the continuation of our previous work ([project page](http://www.eecs.qm
 ```
 ## Dataset 
 [Figaro-1k](http://www.eecs.qmul.ac.uk/~urm30/HairMaterial/Figaro-1k.zip): It contains 1050 unconstrained view images with persons, subdivided into seven different hairstyles classes (straight, wavy, curly, kinky, braids, dreadlocks, short), where each image is provided with the related manually segmented hair mask.
+The 7 classes are distributed in this order:
+straight: frame00001-00150
+wavy: frame00151-00300
+curly: frame00301-00450
+kinky: frame00451-00600 
+braids: frame00601-00750
+dreadlocks: frame00751-00900
+short-men: frame00091-01050
 
 ## Demo
 You can run the demo on any jpg format image (that must be placed in folder *Data*) by running main.py file.  

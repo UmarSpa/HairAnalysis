@@ -47,6 +47,6 @@ The 7 classes are distributed in this order:
 
 ## Demo
 You can run the demo on any jpg format image (that must be placed in folder *Data*) by running main.py file.  
-N.B. you need to download [model_caffenet.caffemodel](http://www.eecs.qmul.ac.uk/~urm30/HairMaterial/model_caffenet.caffemodel) and place it in *Tools/CaffeNet/*.  
+N.B. you need to download [model_caffenet.caffemodel](https://drive.google.com/file/d/1efgExeaV0pDZkYj0M_tEi1IlZEycQdRq/view?usp=sharing) and place it in *Tools/CaffeNet/*.  
 
 

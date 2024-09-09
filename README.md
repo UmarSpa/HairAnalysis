@@ -45,6 +45,6 @@ The 7 classes are distributed in this order:
 
 ## Demo
 You can run the demo on any jpg format image (that must be placed in folder *Data*) by running main.py file.  
-N.B. you need to download [model_caffenet.caffemodel]([https://www.dropbox.com/scl/fi/bkzbwgobxayoaeqohgvrp/Figaro-1k.zip?rlkey=qahueoko45prpzmsadzmus5ga&dl=0](https://www.dropbox.com/scl/fi/r6jp05fo8g9srlfg01cjo/model_caffenet.caffemodel?rlkey=pmiouw039notr0d7fgbrsdy3j&st=ndvremo7&dl=0)) and place it in *Tools/CaffeNet/*.  
+N.B. you need to download [model_caffenet.caffemodel](https://www.dropbox.com/scl/fi/r6jp05fo8g9srlfg01cjo/model_caffenet.caffemodel?rlkey=pmiouw039notr0d7fgbrsdy3j&st=ndvremo7&dl=0) and place it in *Tools/CaffeNet/*.  
 
 
